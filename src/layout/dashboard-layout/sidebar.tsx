@@ -1,4 +1,5 @@
 "use client";
+
 import { Menu } from "./menu";
 import { SidebarToggle } from "./sidebar-toggle";
 import { Button } from "@/components/ui/button";
@@ -12,20 +13,21 @@ export function Sidebar() {
   const sidebar = useStore(useSidebar, (x) => x);
   if (!sidebar) return null;
   const { isOpen, toggleOpen, getOpenState, setIsHover, settings } = sidebar;
+
   return (
     <aside
       className={cn(
-        "fixed top-0 left-0 z-20 h-screen -translate-x-full lg:translate-x-0 transition-[width] ease-in-out duration-300",
+        "fixed top-0 left-0 z-20 h-screen transition-all ease-in-out duration-300",
         !getOpenState() ? "w-[90px]" : "w-72",
-        settings.disabled && "hidden"
+        settings.disabled
+          ? "opacity-0 -translate-x-full pointer-events-none"
+          : "opacity-100 translate-x-0"
       )}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
     >
       <SidebarToggle isOpen={isOpen} setIsOpen={toggleOpen} />
-      <div
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-        className="relative h-full flex flex-col px-3 py-4 overflow-y-auto shadow-md dark:shadow-zinc-800"
-      >
+      <div className="relative h-full flex flex-col px-3 py-4 overflow-y-auto shadow-md dark:shadow-zinc-800">
         <Button
           className={cn(
             "transition-transform ease-in-out duration-300 mb-1",

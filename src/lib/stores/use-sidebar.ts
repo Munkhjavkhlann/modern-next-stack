@@ -2,8 +2,8 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { produce } from "immer";
 
-type SidebarSettings = { disabled: boolean; isHoverOpen: boolean };
-type SidebarStore = {
+export type SidebarSettings = { disabled: boolean; isHoverOpen: boolean };
+export type SidebarStore = {
   isOpen: boolean;
   isHover: boolean;
   settings: SidebarSettings;
