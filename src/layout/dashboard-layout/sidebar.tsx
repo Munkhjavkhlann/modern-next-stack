@@ -14,7 +14,7 @@ import { SidebarToggle } from "./sidebar-toggle";
 
 export function Sidebar() {
   const sidebar = useStore(useSidebar, (x) => x);
-  if (!sidebar) {return null;}
+  if (!sidebar) { return null; }
   const { isOpen, toggleOpen, getOpenState, setIsHover, settings } = sidebar;
 
   return (
@@ -24,13 +24,16 @@ export function Sidebar() {
         !getOpenState() ? "w-[90px]" : "w-72",
         settings.disabled
           ? "opacity-0 -translate-x-full pointer-events-none"
-          : "opacity-100 translate-x-0"
+          : "lg:translate-x-0 opacity-100",
+        "transform -translate-x-full lg:translate-x-0"
       )}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
     >
       <SidebarToggle isOpen={isOpen} setIsOpen={toggleOpen} />
-      <div className="relative h-full flex flex-col px-3 py-4 overflow-y-auto shadow-md dark:shadow-zinc-800">
+      <div
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        className="relative h-full flex flex-col px-3 py-4 overflow-y-auto shadow-md dark:shadow-zinc-800"
+      >
         <Button
           className={cn(
             "transition-transform ease-in-out duration-300 mb-1",
