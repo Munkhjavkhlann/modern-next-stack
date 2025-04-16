@@ -17,7 +17,6 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  // Global ignores for build and generated files
   {
     ignores: [
       "**/.next/**",
@@ -32,7 +31,6 @@ const eslintConfig = [
     ],
   },
 
-  // Base JavaScript rules
   {
     ...js.configs.recommended,
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
@@ -50,7 +48,6 @@ const eslintConfig = [
       "curly": "error",
     },
   },
-  // TypeScript rules
   {
     files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
@@ -81,7 +78,6 @@ const eslintConfig = [
       "@typescript-eslint/no-namespace": "error",
     },
   },
-  // Relax TypeScript rules for UI components
   {
     files: ["src/components/ui/*.tsx"],
     rules: {
@@ -91,7 +87,6 @@ const eslintConfig = [
       "@typescript-eslint/restrict-template-expressions": "warn",
     },
   },
-  // React and React Hooks rules
   {
     files: ["**/*.jsx", "**/*.tsx"],
     plugins: {
@@ -111,7 +106,6 @@ const eslintConfig = [
       "react/self-closing-comp": ["error", { component: true, html: true }],
     },
   },
-  // Import rules
   {
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
     plugins: {
@@ -121,7 +115,7 @@ const eslintConfig = [
       "import/order": [
         "error",
         {
-          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index", "type"],
           "newlines-between": "always",
           alphabetize: { order: "asc", caseInsensitive: true },
         },
@@ -131,13 +125,11 @@ const eslintConfig = [
       "import/no-anonymous-default-export": ["error", { allowArray: false }],
     },
   },
-  // Next.js specific rules
   ...compat.extends(
     "next/core-web-vitals",
     "next/typescript",
     "plugin:@next/next/recommended"
   ),
-  // Cypress-specific settings (placed after TypeScript rules for precedence)
   {
     files: ["cypress/**/*.ts", "cypress/**/*.tsx", "cypress/**/*.js"],
     languageOptions: {
