@@ -19,10 +19,9 @@ import {
 } from "@/components/ui/tooltip";
 import { useSidebar } from "@/lib/stores/use-sidebar";
 
-
 export function DashboardSettings() {
     const sidebar = useStore(useSidebar, (x) => x);
-    if (!sidebar) {return null;}
+    if (!sidebar) { return null; }
     const { settings, setSettings } = sidebar;
 
     return (

@@ -1,7 +1,6 @@
 "use client";
 
 import { DropdownMenuArrow } from "@radix-ui/react-dropdown-menu";
-import type { LucideIcon } from "lucide-react";
 import { ChevronDown, Dot } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -28,6 +27,8 @@ import {
   TooltipProvider
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+
+import type { LucideIcon } from "lucide-react";
 
 type Submenu = {
   href: string;

@@ -1,31 +1,13 @@
-import type { LucideIcon } from "lucide-react";
 import {
   Tag,
-  // Users,
-  // Settings,
   Bookmark,
   SquarePen,
   LayoutGrid,
 } from "lucide-react";
 
-type Submenu = {
-  href: string;
-  label: string;
-  active?: boolean;
-};
+import { paths } from "@/routes/paths";
 
-type Menu = {
-  href: string;
-  label: string;
-  active?: boolean;
-  icon: LucideIcon;
-  submenus?: Submenu[];
-};
-
-type Group = {
-  groupLabel: string;
-  menus: Menu[];
-};
+import type { Group } from "@/types/menu";
 
 export function getMenuList(): Group[] {
   return [
@@ -33,7 +15,7 @@ export function getMenuList(): Group[] {
       groupLabel: "",
       menus: [
         {
-          href: "/dashboard",
+          href: paths.dashboard.root,
           label: "Dashboard",
           icon: LayoutGrid,
           submenus: []
@@ -49,41 +31,28 @@ export function getMenuList(): Group[] {
           icon: SquarePen,
           submenus: [
             {
-              href: "/posts",
+              href: paths.dashboard.posts.root,
               label: "All Posts"
             },
             {
-              href: "/posts/new",
+              href: paths.dashboard.posts.new,
               label: "New Post"
             }
           ]
         },
         {
-          href: "/categories",
+          href: paths.dashboard.categories,
           label: "Categories",
-          icon: Bookmark
+          icon: Bookmark,
+          submenus: []
         },
         {
-          href: "/tags",
+          href: paths.dashboard.tags,
           label: "Tags",
-          icon: Tag
+          icon: Tag,
+          submenus: []
         }
       ]
     }
-    // {
-    //   groupLabel: "Settings",
-    //   menus: [
-    //     {
-    //       href: "/users",
-    //       label: "Users",
-    //       icon: Users
-    //     },
-    //     {
-    //       href: "/account",
-    //       label: "Account",
-    //       icon: Settings
-    //     }
-    //   ]
-    // }
   ];
 }

@@ -1,7 +1,8 @@
-import type { StoreApi, UseBoundStore } from 'zustand';
 import { create } from 'zustand';
 
 import { DashboardSettings } from '@/layout/dashboard-layout/dashboard-settings';
+
+import type { StoreApi, UseBoundStore } from 'zustand';
 
 interface SidebarSettings {
     disabled: boolean;

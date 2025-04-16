@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 
+import PlaceholderContent from "@/components/placeholder-content";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,7 +17,7 @@ import { useStore } from "@/lib/stores/use-store";
 
 export default function DashboardPage() {
   const sidebar = useStore(useSidebar, (x) => x);
-  if (!sidebar) {return null;}
+  if (!sidebar) { return null; }
 
   return (
     <ContentLayout title="Dashboard">
@@ -33,6 +34,7 @@ export default function DashboardPage() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+      <PlaceholderContent />
     </ContentLayout>
   );
 }
