@@ -1,3 +1,4 @@
+import type { LucideIcon } from "lucide-react";
 import {
   Tag,
   // Users,
@@ -5,7 +6,6 @@ import {
   Bookmark,
   SquarePen,
   LayoutGrid,
-  LucideIcon
 } from "lucide-react";
 
 type Submenu = {

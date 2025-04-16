@@ -1,9 +1,11 @@
 "use client";
 
-import { Sidebar } from "./sidebar";
+
 import { useSidebar } from "@/lib/stores/use-sidebar";
 import { useStore } from "@/lib/stores/use-store";
 import { cn } from "@/lib/utils";
+
+import { Sidebar } from "./sidebar";
 
 export default function AdminPanelLayout({
   children,
@@ -11,7 +13,7 @@ export default function AdminPanelLayout({
   children: React.ReactNode;
 }) {
   const sidebar = useStore(useSidebar, (x) => x);
-  if (!sidebar) return null;
+  if (!sidebar) {return null;}
   const { getOpenState, settings } = sidebar;
 
   return (

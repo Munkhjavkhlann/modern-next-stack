@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ContentLayout } from "@/layout/dashboard-layout/content-layout";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,12 +10,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
+import { ContentLayout } from "@/layout/dashboard-layout/content-layout";
 import { useSidebar } from "@/lib/stores/use-sidebar";
 import { useStore } from "@/lib/stores/use-store";
 
 export default function DashboardPage() {
   const sidebar = useStore(useSidebar, (x) => x);
-  if (!sidebar) return null;
+  if (!sidebar) {return null;}
 
   return (
     <ContentLayout title="Dashboard">

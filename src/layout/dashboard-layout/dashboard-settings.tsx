@@ -1,9 +1,15 @@
 "use client";
 
+import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { Settings } from "lucide-react";
+import { useStore } from "zustand";
+
+import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
 } from "@/components/ui/dropdown-menu";
+import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import {
     TooltipProvider,
@@ -11,16 +17,12 @@ import {
     TooltipContent,
     Tooltip,
 } from "@/components/ui/tooltip";
-import { Label } from "@/components/ui/label";
 import { useSidebar } from "@/lib/stores/use-sidebar";
-import { useStore } from "zustand";
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
-import { Settings } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 
 export function DashboardSettings() {
     const sidebar = useStore(useSidebar, (x) => x);
-    if (!sidebar) return null;
+    if (!sidebar) {return null;}
     const { settings, setSettings } = sidebar;
 
     return (

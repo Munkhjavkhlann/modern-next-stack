@@ -1,20 +1,22 @@
 "use client";
 
-import Link from "next/link";
 import { Ellipsis } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { cn } from "@/lib/utils";
-import { getMenuList } from "./menu-list";
+
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { CollapseMenuButton } from "./collapse-menu-button";
 import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider
 } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
+
+import { CollapseMenuButton } from "./collapse-menu-button";
+import { getMenuList } from "./menu-list";
 
 interface MenuProps {
   isOpen: boolean | undefined;
@@ -48,7 +50,7 @@ export function Menu({ isOpen }: MenuProps) {
                   </Tooltip>
                 </TooltipProvider>
               ) : (
-                <p className="pb-2"></p>
+                <p className="pb-2" />
               )}
               {menus.map(
                 ({ href, label, icon: Icon, active, submenus }, index) =>

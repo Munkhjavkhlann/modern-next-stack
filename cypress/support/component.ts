@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-namespace */
+ 
 import './commands';
 import { mount } from 'cypress/react';
 import '@/app/globals.css';

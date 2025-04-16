@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import PlaceholderContent from "@/components/placeholder-content";
-import { ContentLayout } from "@/layout/dashboard-layout/content-layout";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,6 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
+import { ContentLayout } from "@/layout/dashboard-layout/content-layout";
 
 export default function NewPostPage() {
   return (

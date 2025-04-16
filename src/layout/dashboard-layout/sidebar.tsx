@@ -1,17 +1,20 @@
 "use client";
 
-import { Menu } from "./menu";
-import { SidebarToggle } from "./sidebar-toggle";
+import { PanelsTopLeft } from "lucide-react";
+import Link from "next/link";
+
+
 import { Button } from "@/components/ui/button";
 import { useSidebar } from "@/lib/stores/use-sidebar";
 import { useStore } from "@/lib/stores/use-store";
 import { cn } from "@/lib/utils";
-import { PanelsTopLeft } from "lucide-react";
-import Link from "next/link";
+
+import { Menu } from "./menu";
+import { SidebarToggle } from "./sidebar-toggle";
 
 export function Sidebar() {
   const sidebar = useStore(useSidebar, (x) => x);
-  if (!sidebar) return null;
+  if (!sidebar) {return null;}
   const { isOpen, toggleOpen, getOpenState, setIsHover, settings } = sidebar;
 
   return (
